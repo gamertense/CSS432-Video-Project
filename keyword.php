@@ -5,7 +5,7 @@ include 'vendor/SrtParser/Time.php';
 use Benlipp\SrtParser\Parser;
 
 	$parser = new Parser();
-    $parser->loadFile('./videos/10 ways.srt');
+    $parser->loadFile('./videos/the cast.srt');
     $captions = $parser->parse();
 
     $search = $_GET['search'];

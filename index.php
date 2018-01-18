@@ -4,7 +4,7 @@ include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
 use Benlipp\SrtParser\Parser;
 
-$video = "./videos/10 ways to have a better conversation - Celeste Headlee - YouTube.mp4"; //path to video
+$video = "./videos/The Cast of Star Wars.mp4"; //path to video
 $frame_count = 10; //Amount of frames to render from video
 
 $video_path = pathinfo($video);
@@ -18,9 +18,10 @@ if (isset($_GET['make_thumbs'])) {
     exit(header('Location: ./'));
 }
 
+//Sutitle function
 if (isset($_GET['loadsrt'])) {
     $parser = new Parser();
-    $parser->loadFile('./videos/10 ways.srt');
+    $parser->loadFile('./videos/the cast.srt');
     $captions = $parser->parse();
 
     foreach ($captions as $caption) {
