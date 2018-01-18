@@ -5,7 +5,13 @@ include 'vendor/SrtParser/Time.php';
 use Benlipp\SrtParser\Parser;
 
 $video = "./videos/The Cast of Star Wars.mp4"; //path to video
-$frame_count = 10; //Amount of frames to render from video
+
+$parser = new Parser();
+$parser->loadFile('./videos/the cast.srt');
+$captions = $parser->parse();
+$numFrames = count($captions);
+
+$frame_count = $numFrames; //Amount of frames to render from video
 
 $video_path = pathinfo($video);
 
