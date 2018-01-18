@@ -32,11 +32,10 @@ if (isset($_GET['loadsrt'])) {
 }
 ?>
 
-<form action="test.php" method="get">
+<!-- go to keyword -->
+<form action="keyword.php" method="get">
 	<input type="text" name="search" placeholder="Search">
 </form>
-
-
 
 <html>
 
