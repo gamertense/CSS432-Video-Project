@@ -32,6 +32,12 @@ if (isset($_GET['loadsrt'])) {
 }
 ?>
 
+<form action="test.php" method="get">
+	<input type="text" name="search" placeholder="Search">
+</form>
+
+
+
 <html>
 
 <head>
