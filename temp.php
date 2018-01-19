@@ -9,7 +9,7 @@ if (isset($_POST['submit']) && isset($_FILES['vid_file'])) {
 	exit();
 }
 else {
-	
+	echo "Upload error";
 }
 
 

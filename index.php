@@ -9,7 +9,39 @@ session_start();
 
 <?php
 	if (glob("./videos/*.mp4") == true) {
-		# code...
+		$video = "./videos/The Cast of Star Wars.mp4"; //path to video
+
+		$parser = new Parser();
+		$parser->loadFile('./videos/the cast.srt');
+		$captions = $parser->parse();
+		$numFrames = count($captions);
+
+		$frame_count = $numFrames; //Amount of frames to render from video
+
+		$video_path = pathinfo($video);
+
+		// For simplicity, Generate frames from the video using ffmpeg upon request
+		if (isset($_GET['make_thumbs'])) {
+		    // init ffmpeg helper class
+		    include('ffmpeg.php');
+		    $ffmpeg = new ffmpeg();
+		    $ffmpeg->ffmpeg_screens($video, $video_path['filename'], $frame_count);
+		    //exit(header('Location: ./'));
+		}
+
+		//Sutitle function
+		if (isset($_GET['loadsrt'])) {
+		    $parser = new Parser();
+		    $parser->loadFile('./videos/the cast.srt');
+		    $captions = $parser->parse();
+
+		    foreach ($captions as $caption) {
+		        echo "Start Time: " . $caption->startTime;
+		        echo nl2br("\nEnd Time: ") . $caption->endTime;
+				echo nl2br("\nText: ") . $caption->text;
+		        echo nl2br("\n\n");
+		    }
+		}
 	}
 	else {
 		echo '<form action="temp.php" method="post" enctype="multipart/form-data">
@@ -21,42 +53,7 @@ session_start();
 
 
 
-<?php
 
-$video = "./videos/The Cast of Star Wars.mp4"; //path to video
-
-$parser = new Parser();
-$parser->loadFile('./videos/the cast.srt');
-$captions = $parser->parse();
-$numFrames = count($captions);
-
-$frame_count = $numFrames; //Amount of frames to render from video
-
-$video_path = pathinfo($video);
-
-// For simplicity, Generate frames from the video using ffmpeg upon request
-if (isset($_GET['make_thumbs'])) {
-    // init ffmpeg helper class
-    include('ffmpeg.php');
-    $ffmpeg = new ffmpeg();
-    $ffmpeg->ffmpeg_screens($video, $video_path['filename'], $frame_count);
-    //exit(header('Location: ./'));
-}
-
-//Sutitle function
-if (isset($_GET['loadsrt'])) {
-    $parser = new Parser();
-    $parser->loadFile('./videos/the cast.srt');
-    $captions = $parser->parse();
-
-    foreach ($captions as $caption) {
-        echo "Start Time: " . $caption->startTime;
-        echo nl2br("\nEnd Time: ") . $caption->endTime;
-		echo nl2br("\nText: ") . $caption->text;
-        echo nl2br("\n\n");
-    }
-}
-?>
 
 <!-- go to keyword -->
 <form action="keyword.php" method="get">
