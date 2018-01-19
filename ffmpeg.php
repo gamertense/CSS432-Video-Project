@@ -6,8 +6,8 @@ class ffmpeg {
 
 	public function __construct()
 	{
-		$this->ffmpeg_path = "C:/ffmpeg/bin/ffmpeg";
-		$this->ffprobe_path = "C:/ffmpeg/bin/ffprobe";
+		$this->ffmpeg_path = "/usr/local/bin/ffmpeg";
+		$this->ffprobe_path = "/usr/local/bin/ffprobe";
 		$this->thumbs_path = getcwd()."/thumbs/";
 	}
 	
