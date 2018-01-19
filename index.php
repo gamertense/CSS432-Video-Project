@@ -50,19 +50,10 @@ session_start();
 				</form>';
 	}
 ?>
-
-
-
-
-
-<!-- go to keyword -->
-<form action="keyword.php" method="get">
-	<input type="text" name="search" placeholder="Search">
-</form>
-
 <html>
 
 <head>
+	<?php require_once('bootstrap.php') ?>
 	<title>Video Thumbnailer Demo Using FFMPEG</title>
 	<script type="text/javascript" src="frame_rotator.js"></script>
 	<script type="text/javascript">
@@ -72,6 +63,11 @@ session_start();
 </head>
 
 <body>
+	<!-- go to keyword -->
+	<form action="keyword.php" method="get">
+		<input type="text" name="search" placeholder="Search">
+	</form>
+
 	<h2>Video Thumbnailer Demo Using FFMPEG</h2>
 	<?php if (!file_exists('./thumbs/'.$video_path['filename'].'/0.png')): ?>
 	<p>
