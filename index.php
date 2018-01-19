@@ -2,7 +2,26 @@
 include 'vendor/SrtParser/Caption.php';
 include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
+include_once('functions.php');
 use Benlipp\SrtParser\Parser;
+session_start();
+?>
+
+<?php
+	if (glob("./videos/*.mp4") == true) {
+		# code...
+	}
+	else {
+		echo '<form action="temp.php" method="post" enctype="multipart/form-data">
+					<input type="file" name="vid_file">
+					<button type="submit" name="submit">Submit</button>
+				</form>';
+	}
+?>
+
+
+
+<?php
 
 $video = "./videos/The Cast of Star Wars.mp4"; //path to video
 
@@ -21,7 +40,7 @@ if (isset($_GET['make_thumbs'])) {
     include('ffmpeg.php');
     $ffmpeg = new ffmpeg();
     $ffmpeg->ffmpeg_screens($video, $video_path['filename'], $frame_count);
-    exit(header('Location: ./'));
+    //exit(header('Location: ./'));
 }
 
 //Sutitle function

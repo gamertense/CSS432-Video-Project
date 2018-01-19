@@ -2,6 +2,7 @@
 include 'vendor/SrtParser/Caption.php';
 include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
+include_once('functions.php');
 use Benlipp\SrtParser\Parser;
 
 	$parser = new Parser();
