@@ -39,7 +39,9 @@ $i = 0; // Index the image file.
 			<tbody>
 	<?php
 	foreach ($captions as $caption) {
-		if (strpos($caption->text, $search) !== false) { ?>					
+		$caption_str = explode(" ", $caption->text);
+		if(in_array($search, $caption_str)) {
+             ?>
 				<tr>
 					<td><?= $caption->startTime ?></td>
 					<td><?= $caption->endTime ?></td>
