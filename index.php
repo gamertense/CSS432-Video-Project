@@ -66,6 +66,7 @@ session_start();
 	<!-- go to keyword -->
 	<form action="keyword.php" method="get">
 		<input type="text" name="search" placeholder="Search">
+		<button>Search</button>
 	</form>
 
 	<h2>Video Thumbnailer Demo Using FFMPEG</h2>
