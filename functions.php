@@ -33,4 +33,13 @@ function getVideo($vid_file) {
 	}
 	else { echo "Video type is invalid."; }
 }
-?>
+
+function exclude_word($word, array $exclude_list) {
+	$w = array($word);
+	if (array_diff($w, $exclude_list)) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}

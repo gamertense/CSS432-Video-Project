@@ -3,6 +3,7 @@ include 'vendor/SrtParser/Caption.php';
 include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
 include_once('functions.php');
+include_once('exclude_word.php');
 use Benlipp\SrtParser\Parser;
 
 $parser = new Parser();
@@ -38,21 +39,29 @@ $i = 0; // Index the image file.
 			</thead>
 			<tbody>
 	<?php
-	foreach ($captions as $caption) {
-		$caption_str = explode(" ", $caption->text);
-		if(in_array($search, $caption_str)) {
-             ?>
-				<tr>
-					<td><?= $caption->startTime ?></td>
-					<td><?= $caption->endTime ?></td>
-					<td><?= $caption->text ?></td>
-					<td><?= '<img src="./thumbs/'.$vid_fileName.'/'.$i.'.png" width="200" height="150">' ?></td>
-				</tr>
-		<?php }
-		else {
-			$i = $i + 1; // Skip the image index synchonize with caption index.
+
+	if (exclude_word($search, $All) == false) { //Options: All, Auxiliary, Preposition, Article, Conjunction, Pronoun
+		echo "Exclude Word Test";
+	}
+	else {
+		foreach ($captions as $caption) {
+			//$caption_str = explode(" ", $caption->text);
+			if (strpos($caption->text, $search) !== false) {
+	             ?>
+					<tr>
+						<td><?= $caption->startTime ?></td>
+						<td><?= $caption->endTime ?></td>
+						<td><?= $caption->text ?></td>
+						<td><?= '<img src="./thumbs/'.$vid_fileName.'/'.$i.'.png" width="200" height="150">' ?></td>
+					</tr>
+			<?php }
+			else {
+				$i = $i + 1; // Skip the image index synchonize with caption index.
+			}
 		}
 	}
+
+	
 ?>
 			</tbody>
 		</table>
