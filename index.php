@@ -4,7 +4,6 @@ include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
 include_once('functions.php');
 use Benlipp\SrtParser\Parser;
-session_start();
 ?>
 
 <?php
