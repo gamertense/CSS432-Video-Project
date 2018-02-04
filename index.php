@@ -7,11 +7,11 @@ use Benlipp\SrtParser\Parser;
 ?>
 
 <?php
-	if (glob("./videos/*.mp4") == true) {
-		$video = "./videos/The Cast of Star Wars.mp4"; //path to video
+	if (glob("./videos/*.MP4") == true) {
+		$video = "./videos/Acer Nitro 5.mp4"; //path to video
 
 		$parser = new Parser();
-		$parser->loadFile('./videos/the cast.srt');
+		$parser->loadFile('./videos/Acer Nitro 5 sub.srt');
 		$captions = $parser->parse();
 		$numFrames = count($captions);
 
@@ -31,7 +31,7 @@ use Benlipp\SrtParser\Parser;
 		//Sutitle function
 		if (isset($_GET['loadsrt'])) {
 		    $parser = new Parser();
-		    $parser->loadFile('./videos/the cast.srt');
+		    $parser->loadFile('./videos/Acer Nitro 5 sub.srt');
 		    $captions = $parser->parse();
 
 		    foreach ($captions as $caption) {
@@ -83,7 +83,7 @@ use Benlipp\SrtParser\Parser;
 
 	<?php endif ?>
 
-	<a href="?loadsrt">Load SRT file</a>
+	<a href="?loadsrt">Show subtitle file</a>
 </body>
 
 </html>
