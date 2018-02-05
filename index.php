@@ -11,7 +11,7 @@ session_start();
 if (isset($_POST['ffmpeg_dir']))
     $_SESSION["ffmpeg_directory"] = $_POST['ffmpeg_dir'];
 
-if (glob("./videos/*.MP4") == true) {
+if (glob("./videos/*.mp4") == true) {
     $video = "./videos/Acer Nitro 5.mp4"; //path to video
 
     $parser = new Parser();
@@ -36,20 +36,18 @@ if (glob("./videos/*.MP4") == true) {
             echo nl2br("\n\n");
         }
     }
-} else { ?>
-    <form action="temp.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="vid_file">
-        <button type="submit" name="submit">Submit</button>
-    </form>
-<?php } ?>
+}
+
+if (isset($_FILES['vid_file']))
+    getVideo($_FILES['vid_file']);
+else
+    echo "Cannot get input file"; ?>
+
 <html>
 
 <head>
     <?php require_once('bootstrap.php') ?>
     <style>
-        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
-        @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css);
-
         .hm-gradient {
             background-color: #eee;
         }
@@ -69,9 +67,20 @@ if (glob("./videos/*.MP4") == true) {
 <body class="hm-gradient">
 
 <main>
-
-    <!--MDB Video-->
     <div class="container mt-4">
+        <?php if (glob("./videos/*.MP4") == false) { ?>
+            <div class="text-center darken-grey-text mb-4">
+                <form action="temp.php" method="post" enctype="multipart/form-data">
+                    <div class="file-field">
+                        <div class="btn btn-default btn-sm">
+                            <span>Choose file</span>
+                            <input name="vid_file" type="file">
+                        </div>
+                    </div>
+                    <button class="btn btn-info">Upload</button>
+                </form>
+            </div>
+        <?php } ?>
 
         <div class="text-center darken-grey-text mb-4">
             <form method="post">
@@ -83,7 +92,7 @@ if (glob("./videos/*.MP4") == true) {
                         <label>For example: C:/ffmpeg/bin</label>
                     </div>
                 </div>
-                <button class="btn btn-info">Submit FFMPEG directory <i class="fa fa-check-circle-o"></i>
+                <button class="btn btn-primary">Submit FFMPEG directory <i class="fa fa-check-circle-o"></i>
                 </button>
             </form>
         </div>
