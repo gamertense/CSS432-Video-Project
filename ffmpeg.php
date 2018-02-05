@@ -6,12 +6,12 @@
 class ffmpeg
 {
 
-    public function __construct($my_directory)
+    public function __construct($ffmpeg_directory)
     {
-        $my_directory = 'C:/ffmpeg/bin/';
-        $this->ffmpeg_path = $my_directory . "ffmpeg";
-        $this->ffprobe_path = $my_directory . "ffprobe";
-        $this->thumbs_path = getcwd() . "/thumbs/";
+        $this->ffmpeg_path = $ffmpeg_directory . "/ffmpeg";
+        $this->ffprobe_path = $ffmpeg_directory . "/ffprobe";
+        $root_dir = '../../../';
+        $this->thumbs_path = getcwd() . $root_dir . "thumbs/";
     }
 
     /**

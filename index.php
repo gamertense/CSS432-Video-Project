@@ -23,16 +23,6 @@ if (glob("./videos/*.MP4") == true) {
 
     $video_path = pathinfo($video);
 
-    // For simplicity, Generate frames from the video using ffmpeg upon request
-    if (isset($_GET['make_thumbs'])) {
-        // init ffmpeg helper class
-        include('ffmpeg.php');
-//        $my_directory = 'C:/ffmpeg/bin/';
-        $ffmpeg = new ffmpeg($_SESSION["ffmpeg_directory"]);
-        $ffmpeg->ffmpeg_screens($video, $video_path['filename'], $frame_count);
-        //exit(header('Location: ./'));
-    }
-
     //Sutitle function
     if (isset($_GET['loadsrt'])) {
         $parser = new Parser();
@@ -56,6 +46,18 @@ if (glob("./videos/*.MP4") == true) {
 
 <head>
     <?php require_once('bootstrap.php') ?>
+    <style>
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+        @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css);
+
+        .hm-gradient {
+            background-color: #eee;
+        }
+
+        .darken-grey-text {
+            color: #2E2E2E;
+        }
+    </style>
     <title>Video Thumbnailer Demo Using FFMPEG</title>
     <script type="text/javascript" src="frame_rotator.js"></script>
     <script type="text/javascript">
@@ -64,37 +66,101 @@ if (glob("./videos/*.MP4") == true) {
     </script>
 </head>
 
-<body>
-<form method="post">
-    <input type="text" name="ffmpeg_dir" placeholder="Your FFMPEG directory"
-           value="<?php if (isset($_SESSION["ffmpeg_directory"])) echo $_SESSION["ffmpeg_directory"] ?>">
-    For example: C:/ffmpeg/bin/
-    <button>Submit FFMPEG directory</button>
-</form>
+<body class="hm-gradient">
 
-<!-- go to keyword -->
-<form action="keyword.php" method="get">
-    <input type="text" name="search" placeholder="Search">
-    <button>Search</button>
-</form>
+<main>
 
-<h2>Video Thumbnailer Demo Using FFMPEG</h2>
-<?php if (!file_exists('./thumbs/' . $video_path['filename'] . '/0.png')): ?>
-    <p>
+    <!--MDB Video-->
+    <div class="container mt-4">
+
+        <div class="text-center darken-grey-text mb-4">
+            <form method="post">
+                <h1 class="font-bold mt-4 mb-3 h5">Specify FFMPEG directory</h1>
+                <div class="form-group">
+                    <div class="col-md-8 offset-md-2">
+                        <input type="text" name="ffmpeg_dir" placeholder="Your FFMPEG directory"
+                               value="<?php if (isset($_SESSION["ffmpeg_directory"])) echo $_SESSION["ffmpeg_directory"] ?>">
+                        <label>For example: C:/ffmpeg/bin</label>
+                    </div>
+                </div>
+                <button class="btn btn-info">Submit FFMPEG directory <i class="fa fa-check-circle-o"></i>
+                </button>
+            </form>
+        </div>
+
+        <!--Search keyword section-->
+        <div class="text-center darken-grey-text mb-4">
+            <!-- go to keyword -->
+            <form action="keyword.php" method="get">
+                <h1 class="font-bold mt-4 mb-3 h5">Search keyword</h1>
+                <div class="form-group">
+                    <div class="col-md-4 offset-md-4">
+                        <input type="text" name="search" placeholder="Enter keyword">
+                    </div>
+                </div>
+                <button class="btn btn-success">Search <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-8 mb-4 offset-md-2">
+
+                <div class="card">
+                    <div class="card-block p-3">
+                        <!--Title-->
+                        <h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>Responsive
+                                image</strong></h3>
+
+                        <div>
+                            <?php if (!file_exists('./thumbs/' . $video_path['filename'] . '/0.png')): ?>
+                                <p>
 		<span id="notice">Video not yet processed,
+            <button name="makeThumbnails" class="btn btn-success">Click here</button>
 			<a href="?make_thumbs" onClick="document.getElementById('notice').innerHTML='Processing please wait...';">click here</a>
 		</span>
-    </p>
-<?php else: ?>
-    <p>Roll over the image and wait for a few seconds.</p>
+                                </p>
+                            <?php else: ?>
+                                <p>Roll over the image and wait for a few seconds.</p>
 
-    <img src="./thumbs/<?php echo $video_path['filename'] ?>/0.png" width="200" height="150"
-         onmouseover="frameRotator.start(this)"
-         onmouseout="frameRotator.end(this)"/>
+                                <img src="./thumbs/<?php echo $video_path['filename'] ?>/0.png" width="700" height="400"
+                                     onmouseover="frameRotator.start(this)"
+                                     onmouseout="frameRotator.end(this)"/>
 
-<?php endif ?>
+                            <?php endif ?>
 
-<a href="?loadsrt">Show subtitle file</a>
+                            <a href="?loadsrt">Show subtitle file</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+    </div>
+    <!--MDB Video-->
+
+</main>
+
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function () {
+        $('button[name="makeThumbnails"]').click(function () {
+            $.post("vendor/ajax/index-ajax.php",
+                {
+                    getThumbs: "Generating"
+                },
+                function (data, status) {
+                    document.getElementById('notice').innerHTML = 'Processing please wait...';
+                    console.log("Data: " + data + "\nStatus: " + status);
+                });
+        });
+    });
+</script>

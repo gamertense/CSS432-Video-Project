@@ -42,7 +42,7 @@ $i = 0; // Index the image file.
         <?php
 
         if (exclude_word($search, $All) == false) { //Options: All, Auxiliary, Preposition, Article, Conjunction, Pronoun
-            echo "Exclude Word Test";
+            echo "<font color=\"red\">Exclude Word Test!</font>";
         } else {
             foreach ($captions as $caption) {
                 //$caption_str = explode(" ", $caption->text);
