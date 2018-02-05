@@ -115,25 +115,23 @@ if (glob("./videos/*.MP4") == true) {
                         <h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>Responsive
                                 image</strong></h3>
 
-                        <div>
-                            <?php if (!file_exists('./thumbs/' . $video_path['filename'] . '/0.png')): ?>
-                                <p>
+                        <?php if (!file_exists('./thumbs/' . $video_path['filename'] . '/0.png')): ?>
+                            <p>
 		<span id="notice">Video not yet processed,
-            <button name="makeThumbnails" class="btn btn-success">Click here</button>
-			<a href="?make_thumbs" onClick="document.getElementById('notice').innerHTML='Processing please wait...';">click here</a>
+            <button name="makeThumbnails" class="btn btn-danger btn-md">Click here</button>
+            <!--			<a href="?make_thumbs" onClick="document.getElementById('notice').innerHTML='Processing please wait...';">click here</a>-->
 		</span>
-                                </p>
-                            <?php else: ?>
-                                <p>Roll over the image and wait for a few seconds.</p>
+                            </p>
+                        <?php else: ?>
+                            <p>Roll over the image and wait for a few seconds.</p>
 
-                                <img src="./thumbs/<?php echo $video_path['filename'] ?>/0.png" width="700" height="400"
-                                     onmouseover="frameRotator.start(this)"
-                                     onmouseout="frameRotator.end(this)"/>
+                            <img src="./thumbs/<?php echo $video_path['filename'] ?>/0.png" width="700" height="400"
+                                 onmouseover="frameRotator.start(this)"
+                                 onmouseout="frameRotator.end(this)"/>
 
-                            <?php endif ?>
+                        <?php endif ?>
 
-                            <a href="?loadsrt">Show subtitle file</a>
-                        </div>
+                        <a href="?loadsrt">Show subtitle file</a>
                     </div>
                 </div>
 
@@ -153,14 +151,12 @@ if (glob("./videos/*.MP4") == true) {
 <script>
     $(document).ready(function () {
         $('button[name="makeThumbnails"]').click(function () {
-            $.post("vendor/ajax/index-ajax.php",
-                {
-                    getThumbs: "Generating"
-                },
-                function (data, status) {
-                    document.getElementById('notice').innerHTML = 'Processing please wait...';
-                    console.log("Data: " + data + "\nStatus: " + status);
-                });
+            document.getElementById('notice').innerHTML = 'Processing please wait...';
+            $.post("vendor/ajax/index-ajax.php", {getThumbs: "Generating"}, function (data, status) {
+                document.getElementById('notice').innerHTML = 'Processing...';
+                window.location.reload();
+                // console.log(data + status);
+            });
         });
     });
 </script>

@@ -27,6 +27,6 @@ if (isset($_POST['getThumbs'])) {
         $my_directory = 'C:/ffmpeg/bin/';
         $ffmpeg = new ffmpeg($my_directory);
         $ffmpeg->ffmpeg_screens($video, $video_path['filename'], $frame_count);
-        echo "Generate success";
+        echo "Generate thumbnails";
     }
 }
