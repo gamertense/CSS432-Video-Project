@@ -9,7 +9,7 @@ session_start();
 $root_dir = '../../';
 
 if (isset($_POST['getThumbs'])) {
-    if (glob($root_dir . "videos/*.MP4") == true) {
+    if (glob($root_dir . "videos/*.mp4") == true) {
         $video = $root_dir . "videos/Acer Nitro 5.mp4"; //path to video
 
         $parser = new Parser();
@@ -24,8 +24,9 @@ if (isset($_POST['getThumbs'])) {
         // For simplicity, Generate frames from the video using ffmpeg upon request
         // init ffmpeg helper class
         include($root_dir . 'ffmpeg.php');
-        $my_directory = 'C:/ffmpeg/bin/';
-        $ffmpeg = new ffmpeg($my_directory);
+//        $my_directory = 'C:/ffmpeg/bin/';
+        $ffmpeg_dir = $_POST['ffmpeg_dir'];
+        $ffmpeg = new ffmpeg($ffmpeg_dir);
         $ffmpeg->ffmpeg_screens($video, $video_path['filename'], $frame_count);
         echo "Generate thumbnails";
     }
