@@ -2,11 +2,18 @@
 include '../SrtParser/Caption.php';
 include '../SrtParser/Parser.php';
 include '../SrtParser/Time.php';
+include_once('../../functions.php');
 
 use Benlipp\SrtParser\Parser;
 
 session_start();
 $root_dir = '../../';
+
+//This is not AJAX - just don't want to create a PHP file.
+if (isset($_FILES['vid_file'])) {
+    getVideo($root_dir);
+    header('Location: ' . $root_dir . "index.php");
+}
 
 if (isset($_POST['getThumbs'])) {
     if (glob($root_dir . "videos/*.mp4") == true) {

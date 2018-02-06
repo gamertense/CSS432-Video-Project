@@ -1,7 +1,6 @@
 <?php
-function getVideo($vid_file)
+function getVideo($root_dir)
 {
-    $vid_file = $_FILES['vid_file'];
     //extract data of img_file
     $vid_fileName = $_FILES['vid_file']['name']; //name of the file
     $vid_fileTmpName = $_FILES['vid_file']['tmp_name']; //create tmp of the file
@@ -16,7 +15,7 @@ function getVideo($vid_file)
         if ($vid_fileError === 0) {
             if ($vid_fileSize < 10000000000) {
                 $fileNameNew = $vidName . "." . $fileActualExt; //unique name
-                $fileDestination = './videos/' . $fileNameNew;
+                $fileDestination = $root_dir . 'videos/' . $fileNameNew;
                 //Add image
                 move_uploaded_file($vid_fileTmpName, $fileDestination);
                 return $fileNameNew;

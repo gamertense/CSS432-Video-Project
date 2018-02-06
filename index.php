@@ -37,9 +37,6 @@ if (glob("./videos/*.mp4") == true) {
         }
     }
 }
-
-if (isset($_FILES['vid_file']))
-    getVideo($_FILES['vid_file']);
 ?>
 
 <html>
@@ -72,14 +69,14 @@ if (isset($_FILES['vid_file']))
     <div class="container mt-4">
         <?php if (glob("./videos/*.MP4") == false) { ?>
             <div class="text-center darken-grey-text mb-4">
-                <form method="post" enctype="multipart/form-data">
+                <form action="vendor/ajax/index-ajax.php" method="post" enctype="multipart/form-data">
                     <div class="file-field">
                         <div class="btn btn-default btn-sm">
                             <span>Choose file</span>
                             <input name="vid_file" type="file">
                         </div>
                     </div>
-                    <button class="btn btn-info">Upload</button>
+                    <button name="vidUpBut" class="btn btn-info">Upload</button>
                 </form>
             </div>
         <?php } ?>
@@ -94,8 +91,8 @@ if (isset($_FILES['vid_file']))
                         <label>For example: C:/ffmpeg/bin</label>
                     </div>
                     <button class="btn btn-primary">Submit FFMPEG directory <i class="fa fa-check-circle-o"></i>
+                    </button>
                 </div>
-                </button>
             </form>
         </div>
 
@@ -162,7 +159,7 @@ if (isset($_FILES['vid_file']))
 </html>
 
 <script>
-    $(document).ready(function () {
+    function main() {
         var ffmpeg_dir = $('input[name="ffmpeg_dir"').val();
 
         $('button[name="makeThumbnails"]').click(function () {
@@ -180,5 +177,7 @@ if (isset($_FILES['vid_file']))
                 // console.log(data + status);
             });
         });
-    });
+    }
+
+    $(document).ready(main());
 </script>
