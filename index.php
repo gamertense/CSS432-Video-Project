@@ -173,8 +173,8 @@ if (glob("./videos/*.mp4") == true) {
                 getThumbs: "Generating",
                 ffmpeg_dir: ffmpeg_dir
             }, function (data, status) {
+                // console.log(data + "" + status);
                 window.location.reload();
-                // console.log(data + status);
             });
         });
     }
