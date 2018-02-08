@@ -11,7 +11,7 @@ class ffmpeg
         $this->ffmpeg_path = $ffmpeg_directory . "/ffmpeg";
         $this->ffprobe_path = $ffmpeg_directory . "/ffprobe";
         $root_dir = '../../../';
-        $this->thumbs_path = getcwd() . $root_dir . "thumbs/";
+        $this->thumbs_path = getcwd() . $root_dir . "/thumbs/";
     }
 
     /**
