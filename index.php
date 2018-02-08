@@ -73,7 +73,6 @@ if (glob("./videos/*.mp4") == true) {
                 <form action="vendor/ajax/index-ajax.php" method="post" enctype="multipart/form-data">
                     <div class="file-field">
                         <div class="btn btn-default btn-sm">
-                            <span>Choose file</span>
                             <input name="vid_file" type="file">
                         </div>
                     </div>
@@ -169,7 +168,7 @@ if (glob("./videos/*.mp4") == true) {
                 return false;
             }
 
-            document.getElementById('notice').innerHTML = 'Processing...';
+            document.getElementById('notice').innerHTML = "<i class='fa fa-circle-o-notch fa-spin'></i> Processing...";
             $.post("vendor/ajax/index-ajax.php", {
                 getThumbs: "Generating",
                 ffmpeg_dir: ffmpeg_dir
