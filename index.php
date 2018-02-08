@@ -3,6 +3,7 @@ include 'vendor/SrtParser/Caption.php';
 include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
 include_once('functions.php');
+//
 
 use Benlipp\SrtParser\Parser;
 
@@ -12,10 +13,10 @@ if (isset($_POST['ffmpeg_dir']))
     $_SESSION["ffmpeg_directory"] = $_POST['ffmpeg_dir'];
 
 if (glob("./videos/*.mp4") == true) {
-    $video = "./videos/Acer Nitro 5.mp4"; //path to video
+    $video = get_path(0);
 
     $parser = new Parser();
-    $parser->loadFile('./videos/Acer Nitro 5 sub.srt');
+    $parser->loadFile(get_path(1));
     $captions = $parser->parse();
     $numFrames = count($captions);
 
@@ -26,7 +27,7 @@ if (glob("./videos/*.mp4") == true) {
     //Sutitle function
     if (isset($_GET['loadsrt'])) {
         $parser = new Parser();
-        $parser->loadFile('./videos/Acer Nitro 5 sub.srt');
+        $parser->loadFileget_path(get_path(1));
         $captions = $parser->parse();
 
         foreach ($captions as $caption) {

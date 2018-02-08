@@ -4,11 +4,12 @@ include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
 include_once('functions.php');
 include_once('exclude_word.php');
+session_start();
 
 use Benlipp\SrtParser\Parser;
 
 $parser = new Parser();
-$parser->loadFile('./videos/Acer Nitro 5 sub.srt');
+$parser->loadFileget_path(get_path(1));
 $captions = $parser->parse();
 
 $search = $_GET['search'];
@@ -16,6 +17,7 @@ $search = $_GET['search'];
 $path = glob("./videos/*.mp4"); // This will work properly if only one mp4 video is in the path
 $vid_path = $path[0];
 $vid_fileName = basename($vid_path, ".mp4"); // get file name without extension
+//$vid_fileName = get_path(0);
 
 $i = 0; // Index the image file.
 ?>
