@@ -7,8 +7,3 @@
 <link rel="stylesheet" href="vendor/bootstrap-4.0.0-dist/css/bootstrap.min.css">
 <script src="vendor/bootstrap-4.0.0-dist/jquery-3.3.1.min.js"></script>
 <script src="vendor/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-
-<style>
-    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
-    @import url(https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.3/css/mdb.min.css);
-</style>

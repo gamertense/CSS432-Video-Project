@@ -13,9 +13,9 @@ $captions = $parser->parse();
 
 $search = $_GET['search'];
 
-$path = glob("./videos/*.MP4"); // This will work properly if only one mp4 video is in the path
+$path = glob("./videos/*.mp4"); // This will work properly if only one mp4 video is in the path
 $vid_path = $path[0];
-$vid_fileName = basename($vid_path, ".MP4"); // get file name without extension
+$vid_fileName = basename($vid_path, ".mp4"); // get file name without extension
 
 $i = 0; // Index the image file.
 ?>
