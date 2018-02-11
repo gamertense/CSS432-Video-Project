@@ -26,6 +26,11 @@ if (glob("./videos/*.mp4") == true) {
 
     //Sutitle function
     if (isset($_GET['loadsrt'])) {
+        ini_set('max_execution_time', 300); //300 seconds = 5 minutes
+
+        $command = escapeshellcmd('C:\Python27\python.exe C:\Python27\scripts\autosub_app.py -S en -D en videos\acer.mp4');
+        $output = shell_exec($command);
+
         $parser = new Parser();
         $parser->loadFileget_path(get_path(1));
         $captions = $parser->parse();
