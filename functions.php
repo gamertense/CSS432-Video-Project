@@ -64,12 +64,20 @@ function uploadedFilesHTML()
             <?php $findme = '.mp4';
             $pos = strpos($filename, $findme);
             if ($pos !== false) { ?>
-                <button id="<?= $filename ?>" name="gensub" class="btn btn-success btn-sm">Gen auto sub <i
-                            class="fa fa-plus"></i>
+                <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
+                            class="fa fa-edit"></i>
                 </button>
+                <?php
+                $files = glob("videos/*");
+                $filenamewithoutext = str_replace(".mp4", "", $filename);
+                if (!in_array("videos/" . $filenamewithoutext . ".srt", $files)) { ?>
+                    <button id="<?= $filename ?>" name="gensub" class="btn btn-warning btn-sm">Gen auto sub <i
+                                class="fa fa-plus"></i>
+                    </button>
+                <?php } ?>
             <?php } ?>
             <a name="<?= $filename ?>"><i
-                        class="fa fa-remove"
+                        class="fa fa-trash"
                         style="font-size:24px;color:red"></i></a>
         </li>
     <?php }

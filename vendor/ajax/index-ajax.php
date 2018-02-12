@@ -15,9 +15,13 @@ if (isset($_FILES['vid_file'])) {
     header('Location: ' . $root_dir . "index.php");
 }
 
-if (isset($_POST['getThumbs'])) {
-    if (glob($root_dir . "videos/*.mp4") == true) {
-        $video = $root_dir . "videos/Acer Nitro 5.mp4"; //path to video
+//Handle get thumbnails request
+if (isset($_POST['ffmpeg_dir'])) {
+    //Check if thumbnails already generated
+    if (glob($root_dir . "videos/" . $_POST['filename']) == true)
+        echo "Thumbnails already generated";
+    else {
+        $video = $root_dir . "videos/" . $_POST['filename']; //path to video
         $parser = new Parser();
         $parser->loadFile($root_dir . 'videos/Acer Nitro 5 sub.srt');
         $captions = $parser->parse();
@@ -34,7 +38,8 @@ if (isset($_POST['getThumbs'])) {
         $ffmpeg_dir = $_POST['ffmpeg_dir'];
         $ffmpeg = new ffmpeg($ffmpeg_dir);
         $ffmpeg->ffmpeg_screens($video, $video_path['filename'], $frame_count);
-        echo "Generate thumbnails";
+
+        echo "Generate thumbnails: ";
     }
 }
 
