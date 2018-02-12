@@ -6,6 +6,7 @@ include_once('../../functions.php');
 
 use Benlipp\SrtParser\Parser;
 
+ini_set('max_execution_time', 300); //300 seconds = 5 minutes
 $root_dir = '../../';
 
 //This is not AJAX - just don't want to create a new PHP file.
@@ -37,8 +38,18 @@ if (isset($_POST['getThumbs'])) {
     }
 }
 
-if (isset($_GET['remove'])) {
-    $filename = $_GET['remove'];
+//When clicking remove file
+if (isset($_POST['remove'])) {
+    $filename = $_POST['remove'];
     unlink($root_dir . "videos/" . $filename);
     echo "Success";
+}
+
+//When clicking gen sub
+if (isset($_POST['gensub'])) {
+    $filename = $_POST['gensub'];
+    $file_des = $root_dir . "videos/" . $filename;
+    $cmd = "C:\Python27\python.exe C:\Python27\scripts\autosub_app.py -S en -D en " . $file_des;
+    exec($cmd, $output, $status);
+    echo $status;
 }

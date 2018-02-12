@@ -40,18 +40,37 @@ function exclude_word($word, array $exclude_list)
     }
 }
 
-function get_path($file_extension) { //'0' for mp4, '1' for srt
+function get_path($file_extension)
+{ //'0' for mp4, '1' for srt
     if ($file_extension == 0) {
         $path = glob("./videos/*.mp4");
         $vid_path = $path[0];
         //$__fileName = basename($vid_path, ".mp4");
         //$__fileName = $vid_path.".mp4";
-    }
-    elseif ($file_extension == 1) {
+    } elseif ($file_extension == 1) {
         $path = glob("./videos/*.srt");
         $vid_path = $path[0];
         //$__fileName = basename($vid_path, ".srt");
         //$__fileName = $vid_path.".srt";
     }
     return $vid_path;
+}
+
+function uploadedFilesHTML()
+{
+    foreach (glob("videos/*") as $filename) {
+        $filename = str_replace("videos/", "", $filename); ?>
+        <li class="list-group-item"><?= $filename ?>
+            <?php $findme = '.mp4';
+            $pos = strpos($filename, $findme);
+            if ($pos !== false) { ?>
+                <button id="<?= $filename ?>" name="gensub" class="btn btn-success btn-sm">Gen auto sub <i
+                            class="fa fa-plus"></i>
+                </button>
+            <?php } ?>
+            <a name="<?= $filename ?>"><i
+                        class="fa fa-remove"
+                        style="font-size:24px;color:red"></i></a>
+        </li>
+    <?php }
 }

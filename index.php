@@ -82,7 +82,8 @@ if (glob("./videos/*.mp4") == true) {
                             <input name="vid_file" type="file">
                         </div>
                     </div>
-                    <button name="vidUpBut" class="btn btn-info">Upload</button>
+                    <button name="vidUpBut" class="btn btn-info">Upload <i class="fa fa-upload" aria-hidden="true"></i>
+                    </button>
                 </form>
             </div>
         <?php } ?>
@@ -111,18 +112,11 @@ if (glob("./videos/*.mp4") == true) {
                 <div class="card">
                     <div class="card-block p-3">
                         <!--Title-->
-                        <h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>Files uploaded
-                            </strong></h3>
+                        <h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>uploaded files
+                            </strong> <span id="genspin"></span></h3>
 
                         <ul class="list-group">
-                            <?php
-                            foreach (glob("videos/*.mp4") as $filename) {
-                                $filename = str_replace("videos/", "", $filename); ?>
-                                <li class="list-group-item"><?= $filename ?> <a name="<?= $filename ?>"><i
-                                                class="fa fa-remove"
-                                                style="font-size:24px;color:red"></i></a>
-                                </li>
-                            <?php } ?>
+                            <?php uploadedFilesHTML() ?>
                         </ul>
                     </div>
                 </div>
@@ -194,8 +188,18 @@ if (glob("./videos/*.mp4") == true) {
         $('ul > li > a').click(function () {
             var filename = $(this).attr("name");
 
-            $.get("vendor/ajax/index-ajax.php", {remove: filename}).done(function (data) {
+            $.post("vendor/ajax/index-ajax.php", {remove: filename}).done(function (data) {
                 alert("Remove status: " + data);
+                window.location.reload();
+            });
+        });
+
+        $('button[name="gensub"]').click(function () {
+            var filename = $(this).attr("id");
+            document.getElementById('genspin').innerHTML = "<i class='fa fa-circle-o-notch fa-spin'></i>";
+
+            $.post("vendor/ajax/index-ajax.php", {gensub: filename}).done(function (data) {
+                alert("Gen status code: " + data + "(0 = no error)");
                 window.location.reload();
             });
         });
