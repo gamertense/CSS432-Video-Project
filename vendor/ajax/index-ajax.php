@@ -36,3 +36,9 @@ if (isset($_POST['getThumbs'])) {
         echo "Generate thumbnails";
     }
 }
+
+if (isset($_GET['remove'])) {
+    $filename = $_GET['remove'];
+    unlink($root_dir . "videos/" . $filename);
+    echo "Success";
+}

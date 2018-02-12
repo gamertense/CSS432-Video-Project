@@ -3,6 +3,7 @@ include 'vendor/SrtParser/Caption.php';
 include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
 include_once('functions.php');
+
 //
 
 use Benlipp\SrtParser\Parser;
@@ -101,23 +102,33 @@ if (glob("./videos/*.mp4") == true) {
             </form>
         </div>
 
-        <!--Search keyword section-->
-        <div class="text-center darken-grey-text mb-4">
-            <!-- go to keyword -->
-            <form action="keyword.php" method="get">
-                <h1 class="font-bold mt-4 mb-3 h5">Search keyword</h1>
-                <div class="form-group">
-                    <div class="col-md-4 offset-md-4">
-                        <input type="text" name="search" placeholder="Enter keyword">
-                    </div>
-                </div>
-                <button class="btn btn-success">Search <i class="fa fa-search"></i>
-                </button>
-            </form>
-        </div>
-
         <!-- Grid row -->
         <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-8 mb-4 offset-md-2">
+
+                <div class="card">
+                    <div class="card-block p-3">
+                        <!--Title-->
+                        <h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>Files uploaded
+                            </strong></h3>
+
+                        <ul class="list-group">
+                            <?php
+                            foreach (glob("videos/*.mp4") as $filename) {
+                                $filename = str_replace("videos/", "", $filename); ?>
+                                <li class="list-group-item"><?= $filename ?> <a name="<?= $filename ?>"><i
+                                                class="fa fa-remove"
+                                                style="font-size:24px;color:red"></i></a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Grid column -->
 
             <!-- Grid column -->
             <div class="col-md-8 mb-4 offset-md-2">
@@ -132,7 +143,7 @@ if (glob("./videos/*.mp4") == true) {
                         if (glob("./videos/*.mp4") == true) {
                             if (!file_exists('./thumbs/' . $video_path['filename'] . '/0.png')): ?>
                                 <p>
-		<span id="notice">Video not yet processed,
+		<span id="notice">Video not yet processed
             <button name="makeThumbnails" class="btn btn-danger btn-md">Click here</button>
             <!--			<a href="?make_thumbs" onClick="document.getElementById('notice').innerHTML='Processing please wait...';">click here</a>-->
 		</span>
@@ -152,11 +163,24 @@ if (glob("./videos/*.mp4") == true) {
 
             </div>
             <!-- Grid column -->
-
         </div>
     </div>
     <!--MDB Video-->
 
+    <!--Search keyword section-->
+    <div class="text-center darken-grey-text mb-4">
+        <!-- go to keyword -->
+        <form action="keyword.php" method="get">
+            <h1 class="font-bold mt-4 mb-3 h5">Search keyword</h1>
+            <div class="form-group">
+                <div class="col-md-4 offset-md-4">
+                    <input type="text" name="search" placeholder="Enter keyword">
+                </div>
+            </div>
+            <button class="btn btn-success">Search <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
 </main>
 
 </body>
@@ -166,6 +190,15 @@ if (glob("./videos/*.mp4") == true) {
 <script>
     function main() {
         var ffmpeg_dir = $('input[name="ffmpeg_dir"').val();
+
+        $('ul > li > a').click(function () {
+            var filename = $(this).attr("name");
+
+            $.get("vendor/ajax/index-ajax.php", {remove: filename}).done(function (data) {
+                alert("Remove status: " + data);
+                window.location.reload();
+            });
+        });
 
         $('button[name="makeThumbnails"]').click(function () {
             if (ffmpeg_dir === "") {
