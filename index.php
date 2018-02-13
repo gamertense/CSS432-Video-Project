@@ -164,7 +164,7 @@ if (glob("./videos/*.mp4") == true) {
             $('#callModal').html('<div id="callModal"></div>');
         });
 
-        $('.list-group > li > a:nth-child(4)').click(function () {
+        $('a.removeFile').click(function () {
             var filename = $(this).attr("name");
 
             $.post("vendor/ajax/index-ajax.php", {remove: filename}).done(function (data) {

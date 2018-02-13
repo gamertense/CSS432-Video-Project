@@ -76,7 +76,7 @@ function uploadedFilesHTML()
                     </button>
                 <?php } ?>
             <?php } ?>
-            <a name="<?= $filename ?>"><i
+            <a class="removeFile" name="<?= $filename ?>"><i
                         class="fa fa-trash"
                         style="font-size:24px;color:red"></i></a>
         </li>
