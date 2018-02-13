@@ -13,10 +13,7 @@
                 if (glob("./videos/*.mp4") == true) {
                     if (!file_exists('./thumbs/' . $_POST['filename'] . '/0.png')): ?>
                         <p>
-		<span id="notice">Video not yet processed
-            <button name="makeThumbnails" class="btn btn-danger btn-md">Click here</button>
-            <!--			<a href="?make_thumbs" onClick="document.getElementById('notice').innerHTML='Processing please wait...';">click here</a>-->
-		</span>
+                            <span id="notice">Video not yet processed</span>
                         </p>
                     <?php else: ?>
                         <p>Roll over the image and wait for a few seconds.</p>
@@ -27,7 +24,6 @@
 
                     <?php endif;
                 } ?>
-                <a href="?loadsrt">Show subtitle file</a>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

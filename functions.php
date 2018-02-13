@@ -60,14 +60,16 @@ function uploadedFilesHTML()
 {
     foreach (glob("videos/*") as $filename) {
         $filename = str_replace("videos/", "", $filename); ?>
-        <li class="list-group-item"><a href="" data-toggle="modal" data-id="<?= $filename ?>" class="thumbLink"><?= $filename ?></a>
-            <?php $findme = '.mp4';
-            $pos = strpos($filename, $findme);
-            if ($pos !== false) { ?>
+        <li class="list-group-item">
+            <?php if (checkFileExt($filename, '.mp4') == true) { ?>
+                <a href="" data-toggle="modal" data-id="<?= $filename ?>"
+                   class="thumbLink"><?= $filename ?></a>
+            <?php } else echo $filename;
+            if (checkFileExt($filename, '.mp4') == true) { ?>
                 <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
                             class="fa fa-edit"></i>
                 </button>
-                <?php
+                <?php //Show gen auto sub button
                 $files = glob("videos/*");
                 $filenamewithoutext = str_replace(".mp4", "", $filename);
                 if (!in_array("videos/" . $filenamewithoutext . ".srt", $files)) { ?>
@@ -81,4 +83,12 @@ function uploadedFilesHTML()
                         style="font-size:24px;color:red"></i></a>
         </li>
     <?php }
+}
+
+function checkFileExt($filename, $findme)
+{
+    $pos = strpos($filename, $findme);
+    if ($pos === false)
+        return false;
+    return true;
 }
