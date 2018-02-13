@@ -115,9 +115,9 @@ if (glob("./videos/*.mp4") == true) {
                         <h3 class="text-center font-up font-bold indigo-text py-2 mb-3"><strong>uploaded files
                             </strong> <span id="genspin"></span></h3>
 
-                        <ul class="list-group">
+                        <div class="list-group">
                             <?php uploadedFilesHTML() ?>
-                        </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -142,16 +142,29 @@ if (glob("./videos/*.mp4") == true) {
         </form>
     </div>
 </main>
-
 </body>
-
+<div id="callModal"></div>
 </html>
 
 <script>
     function main() {
         var ffmpeg_dir = $('input[name="ffmpeg_dir"').val();
 
-        $('ul > li > a').click(function () {
+        $('.thumbLink').on("click", function () {
+            var filename = $(this).data('id').replace(".mp4", "");
+
+            $.post("thumbnail_modal.php", {filename: filename},
+                function (data, status) {
+                    $('#callModal').html(data);
+                    $('#thumbnails_modal').modal('show');
+                });
+        });
+
+        $('#thumbnails_modal').on('hidden.bs.modal', function () {
+            $('#callModal').html('<div id="callModal"></div>');
+        });
+
+        $('.list-group > li > a:nth-child(4)').click(function () {
             var filename = $(this).attr("name");
 
             $.post("vendor/ajax/index-ajax.php", {remove: filename}).done(function (data) {

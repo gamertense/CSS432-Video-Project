@@ -18,7 +18,7 @@ if (isset($_FILES['vid_file'])) {
 //Handle get thumbnails request
 if (isset($_POST['ffmpeg_dir'])) {
     //Check if thumbnails already generated
-    if (glob($root_dir . "videos/" . $_POST['filename']) == true)
+    if (glob($root_dir . "thumbs/" . $_POST['filename']) == true)
         echo "Thumbnails already generated";
     else {
         $video = $root_dir . "videos/" . $_POST['filename']; //path to video

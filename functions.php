@@ -60,7 +60,7 @@ function uploadedFilesHTML()
 {
     foreach (glob("videos/*") as $filename) {
         $filename = str_replace("videos/", "", $filename); ?>
-        <li class="list-group-item"><?= $filename ?>
+        <li class="list-group-item"><a href="" data-toggle="modal" data-id="<?= $filename ?>" class="thumbLink"><?= $filename ?></a>
             <?php $findme = '.mp4';
             $pos = strpos($filename, $findme);
             if ($pos !== false) { ?>
