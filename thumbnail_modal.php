@@ -13,7 +13,7 @@
                 if (glob("./videos/*.mp4") == true) {
                     if (!file_exists('./thumbs/' . $_POST['filename'] . '/0.png')): ?>
                         <p>
-                            <span id="notice">Video not yet processed</span>
+                            <span id="notice">Video not yet processed. Please click make thumbnails button</span>
                         </p>
                     <?php else: ?>
                         <p>Roll over the image and wait for a few seconds.</p>

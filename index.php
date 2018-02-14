@@ -12,6 +12,9 @@ session_start();
 //Update FFMPEG dir variable
 if (isset($_POST['ffmpeg_dir']))
     $_SESSION["ffmpeg_directory"] = str_replace(" ", "", $_POST['ffmpeg_dir']);
+//Update Python path variable
+if (isset($_POST['python_path']))
+    $_SESSION["python_path"] = str_replace(" ", "", $_POST['python_path']);
 
 if (glob("./videos/*.mp4") == true) {
     $video = get_path(0);
@@ -63,6 +66,8 @@ if (glob("./videos/*.mp4") == true) {
         }
     </style>
     <title>Video Thumbnailer Demo Using FFMPEG</title>
+    <link rel="stylesheet" href="vendor/pace/pace-theme-minimal.tmpl.css">
+    <script type="text/javascript" src="vendor/pace/pace.min.js"></script>
     <script type="text/javascript" src="frame_rotator.js"></script>
     <script type="text/javascript">
         /* how many frames to loop */
@@ -98,6 +103,21 @@ if (glob("./videos/*.mp4") == true) {
                         <label>For example: C:/ffmpeg/bin</label>
                     </div>
                     <button class="btn btn-primary">Submit FFMPEG directory <i class="fa fa-check-circle-o"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="text-center darken-grey-text mb-4">
+            <form method="post">
+                <h1 class="font-bold mt-4 mb-3 h5">Specify Python path</h1>
+                <div class="form-group">
+                    <div class="col-md-8 offset-md-2">
+                        <input type="text" name="python_path" placeholder="Your Python path"
+                               value="<?php if (isset($_SESSION["python_path"])) echo $_SESSION["python_path"] ?>">
+                        <label>For example: C:\Python27\</label>
+                    </div>
+                    <button class="btn btn-primary">Submit Python path <i class="fa fa-check-circle-o"></i>
                     </button>
                 </div>
             </form>
@@ -146,61 +166,4 @@ if (glob("./videos/*.mp4") == true) {
 <div id="callModal"></div>
 </html>
 
-<script>
-    function main() {
-        var ffmpeg_dir = $('input[name="ffmpeg_dir"').val();
-
-        $('.thumbLink').on("click", function () {
-            var filename = $(this).data('id').replace(".mp4", "");
-
-            $.post("thumbnail_modal.php", {filename: filename},
-                function (data, status) {
-                    $('#callModal').html(data);
-                    $('#thumbnails_modal').modal('show');
-                });
-        });
-
-        $('#thumbnails_modal').on('hidden.bs.modal', function () {
-            $('#callModal').html('<div id="callModal"></div>');
-        });
-
-        $('a.removeFile').click(function () {
-            var filename = $(this).attr("name");
-
-            $.post("vendor/ajax/index-ajax.php", {remove: filename}).done(function (data) {
-                alert("Remove status: " + data);
-                window.location.reload();
-            });
-        });
-
-        $('button[name="gensub"]').click(function () {
-            var filename = $(this).attr("id");
-            document.getElementById('genspin').innerHTML = "<i class='fa fa-circle-o-notch fa-spin'></i>";
-
-            $.post("vendor/ajax/index-ajax.php", {gensub: filename}).done(function (data) {
-                alert("Gen status code: " + data + "(0 = no error)");
-                window.location.reload();
-            });
-        });
-
-        $('button[name="makethumb"]').click(function () {
-            if (ffmpeg_dir === "") {
-                alert('Please specify FFMPEG path');
-                return false;
-            }
-
-            var filename = $(this).attr("id");
-            document.getElementById('genspin').innerHTML = "<i class='fa fa-circle-o-notch fa-spin'></i>";
-            $.post("vendor/ajax/index-ajax.php", {ffmpeg_dir: ffmpeg_dir, filename: filename},
-                function (data, status) {
-                    if (data !== "Thumbnails already generated")
-                        alert(data + status);
-                    else
-                        alert(data);
-                    window.location.reload();
-                });
-        });
-    }
-
-    $(document).ready(main());
-</script>
+<script type="text/javascript" src="vendor/bootstrap-4.0.0-dist/index.js"></script>

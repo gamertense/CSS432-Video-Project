@@ -54,7 +54,8 @@ if (isset($_POST['remove'])) {
 if (isset($_POST['gensub'])) {
     $filename = $_POST['gensub'];
     $file_des = $root_dir . "videos/" . $filename;
-    $cmd = "C:\Python27\python.exe C:\Python27\scripts\autosub_app.py -S en -D en " . $file_des;
+    $python_path = $_POST['python_path'];
+    $cmd = $python_path . "\python.exe " . $python_path . "\scripts\autosub_app.py -S en -D en " . $file_des;
     exec($cmd, $output, $status);
     echo $status;
 }
