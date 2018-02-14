@@ -59,19 +59,20 @@ function get_path($file_extension)
 function uploadedFilesHTML()
 {
     foreach (glob("videos/*") as $filename) {
-        $filename = str_replace("videos/", "", $filename); ?>
+        $filename = str_replace("videos/", "", $filename);
+        $filenamewithoutext = str_replace(".mp4", "", $filename); ?>
         <li class="list-group-item">
-            <?php if (checkFileExt($filename, '.mp4') == true) { ?>
+            <?php if (checkFileExt($filename, '.mp4')) { ?>
                 <a href="" data-toggle="modal" data-id="<?= $filename ?>"
                    class="thumbLink"><?= $filename ?></a>
             <?php } else echo $filename;
-            if (checkFileExt($filename, '.mp4') == true) { ?>
-                <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
-                            class="fa fa-edit"></i>
-                </button>
-                <?php //Show gen auto sub button
+            if (checkFileExt($filename, '.mp4')) {
+                if (!is_dir('thumbs/' . $filenamewithoutext)) { ?>
+                    <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
+                                class="fa fa-edit"></i>
+                    </button>
+                <?php } //Show gen auto sub button
                 $files = glob("videos/*");
-                $filenamewithoutext = str_replace(".mp4", "", $filename);
                 if (!in_array("videos/" . $filenamewithoutext . ".srt", $files)) { ?>
                     <button id="<?= $filename ?>" name="gensub" class="btn btn-warning btn-sm">Gen auto sub <i
                                 class="fa fa-plus"></i>
