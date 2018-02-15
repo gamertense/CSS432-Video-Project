@@ -4,8 +4,6 @@ include 'vendor/SrtParser/Parser.php';
 include 'vendor/SrtParser/Time.php';
 include_once('functions.php');
 
-//
-
 use Benlipp\SrtParser\Parser;
 
 session_start();
@@ -16,37 +14,6 @@ if (isset($_POST['ffmpeg_dir']))
 if (isset($_POST['python_path']))
     $_SESSION["python_path"] = str_replace(" ", "", $_POST['python_path']);
 
-if (glob("./videos/*.mp4") == true) {
-    $video = get_path(0);
-
-    $parser = new Parser();
-    $parser->loadFile(get_path(1));
-    $captions = $parser->parse();
-    $numFrames = count($captions);
-
-    $frame_count = $numFrames; //Amount of frames to render from video
-
-    $video_path = pathinfo($video);
-
-    //Sutitle function
-    if (isset($_GET['loadsrt'])) {
-        ini_set('max_execution_time', 300); //300 seconds = 5 minutes
-
-        $command = escapeshellcmd('C:\Python27\python.exe C:\Python27\scripts\autosub_app.py -S en -D en videos\acer.mp4');
-        $output = shell_exec($command);
-
-        $parser = new Parser();
-        $parser->loadFileget_path(get_path(1));
-        $captions = $parser->parse();
-
-        foreach ($captions as $caption) {
-            echo "Start Time: " . $caption->startTime;
-            echo nl2br("\nEnd Time: ") . $caption->endTime;
-            echo nl2br("\nText: ") . $caption->text;
-            echo nl2br("\n\n");
-        }
-    }
-}
 ?>
 
 <html>
@@ -66,13 +33,8 @@ if (glob("./videos/*.mp4") == true) {
         }
     </style>
     <title>Video Thumbnailer Demo Using FFMPEG</title>
-    <link rel="stylesheet" href="vendor/pace/pace-theme-minimal.tmpl.css">
-    <script type="text/javascript" src="vendor/pace/pace.min.js"></script>
-    <script type="text/javascript" src="frame_rotator.js"></script>
-    <script type="text/javascript">
-        /* how many frames to loop */
-        frameRotator.frames = <?php echo $frame_count ?>;
-    </script>
+    <script type="text/javascript" data-pace-options='{ "elements": { "selectors": [".selector"] }, "startOnPageLoad": false }' src="vendor/pace/pace.min.js"></script>
+    <link rel="stylesheet" href="vendor/pace/pace-theme-big-counter.tmpl.css">
 </head>
 
 <body class="hm-gradient">

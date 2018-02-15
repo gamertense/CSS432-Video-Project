@@ -1,4 +1,8 @@
 function main() {
+    $(document).ajaxStart(function () {
+        Pace.restart();
+    });
+
     $('.thumbLink').on("click", function () {
         var filename = $(this).data('id').replace(".mp4", "");
 
@@ -6,6 +10,7 @@ function main() {
             function (data, status) {
                 $('#callModal').html(data);
                 $('#thumbnails_modal').modal('show');
+                Pace.stop();
             });
     });
 
@@ -41,7 +46,7 @@ function main() {
     $('button[name="makethumb"]').click(function () {
         var ffmpeg_dir = $('input[name="ffmpeg_dir"]').val();
         if (ffmpeg_dir === "") {
-            alert('Please specify path');
+            alert('Please specify FFMPEG path');
             return false;
         }
 

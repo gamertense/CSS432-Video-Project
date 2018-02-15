@@ -17,13 +17,14 @@ if (isset($_FILES['vid_file'])) {
 
 //Handle get thumbnails request
 if (isset($_POST['ffmpeg_dir'])) {
+    $filenamewithoutext = str_replace(".mp4", "", $_POST['filename']);
     //Check if thumbnails already generated
     if (glob($root_dir . "thumbs/" . $_POST['filename']) == true)
         echo "Thumbnails already generated";
     else {
         $video = $root_dir . "videos/" . $_POST['filename']; //path to video
         $parser = new Parser();
-        $parser->loadFile($root_dir . 'videos/Acer Nitro 5 sub.srt');
+        $parser->loadFile($root_dir . 'videos/' . $filenamewithoutext . '.srt');
         $captions = $parser->parse();
         $numFrames = count($captions);
 

@@ -8,18 +8,12 @@ session_start();
 
 use Benlipp\SrtParser\Parser;
 
-$parser = new Parser();
-$parser->loadFileget_path(get_path(1));
-$captions = $parser->parse();
-
 $search = $_GET['search'];
 
-$path = glob("./videos/*.mp4"); // This will work properly if only one mp4 video is in the path
-$vid_path = $path[0];
-$vid_fileName = basename($vid_path, ".mp4"); // get file name without extension
+//$path = glob("./videos/*.mp4"); // This will work properly if only one mp4 video is in the path
+//$vid_path = $path[0];
+//$vid_fileName = basename($vid_path, ".mp4"); // get file name without extension
 //$vid_fileName = get_path(0);
-
-$i = 0; // Index the image file.
 ?>
 
 <html>
@@ -31,41 +25,53 @@ $i = 0; // Index the image file.
 <body>
 <div class="container">
     <h4>Keyword: <?= $search ?></h4>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Start Time</th>
-            <th>End Time</th>
-            <th>Text</th>
-            <th>Screen</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
+    <?php for ($vidIndex = 0; $vidIndex < count(getPathArray(0)); $vidIndex++) {
+        $i = 0; // Index the image file.
+        $vid_Idx = getPathArray(1)[$vidIndex];
+        $parser = new Parser();
+        $parser->loadFile($vid_Idx);
+        $captions = $parser->parse();
+        $vid_fileName = str_replace(".srt", "", $vid_Idx);
+        $vid_fileName = str_replace("./videos/", "", $vid_fileName); ?>
 
-        if (exclude_word($search, $All) == false) { //Options: All, Auxiliary, Preposition, Article, Conjunction, Pronoun
-            echo "<font color=\"red\">Exclude Word Test!</font>";
-        } else {
-            foreach ($captions as $caption) {
-                //$caption_str = explode(" ", $caption->text);
-                if (strpos($caption->text, $search) !== false) {
-                    ?>
-                    <tr>
-                        <td><?= $caption->startTime ?></td>
-                        <td><?= $caption->endTime ?></td>
-                        <td><?= $caption->text ?></td>
-                        <td><?= '<img src="./thumbs/' . $vid_fileName . '/' . $i . '.png" width="200" height="150">' ?></td>
-                    </tr>
-                <?php } else {
-                    $i = $i + 1; // Skip the image index synchonize with caption index.
+        <h5>Video name: <?= $vid_fileName ?></h5>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Text</th>
+                <th>Screen</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+
+            if (exclude_word($search, $All) == false) { //Options: All, Auxiliary, Preposition, Article, Conjunction, Pronoun
+                echo "<font color=\"red\">Exclude Word Test!</font>";
+            } else {
+                foreach ($captions as $caption) {
+                    //$caption_str = explode(" ", $caption->text);
+                    if (strpos($caption->text, $search) !== false) {
+                        ?>
+                        <tr>
+                            <td><?= $caption->startTime ?></td>
+                            <td><?= $caption->endTime ?></td>
+                            <td><?= $caption->text ?></td>
+                            <td><?= '<img src="./thumbs/' . $vid_fileName . '/' . $i . '.png" width="200" height="150">' ?></td>
+                        </tr>
+                    <?php } else {
+                        $i = $i + 1; // Skip the image index synchonize with caption index.
+                    }
                 }
             }
-        }
 
 
-        ?>
-        </tbody>
-    </table>
+            ?>
+            </tbody>
+        </table>
+        <hr>
+    <?php } ?>
 </div>
 </body>
 </html>

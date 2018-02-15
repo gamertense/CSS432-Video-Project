@@ -40,20 +40,14 @@ function exclude_word($word, array $exclude_list)
     }
 }
 
-function get_path($file_extension)
+function getPathArray($file_extension)
 { //'0' for mp4, '1' for srt
     if ($file_extension == 0) {
-        $path = glob("./videos/*.mp4");
-        $vid_path = $path[0];
-        //$__fileName = basename($vid_path, ".mp4");
-        //$__fileName = $vid_path.".mp4";
+        $path = glob("./videos/*.mp4");      
     } elseif ($file_extension == 1) {
         $path = glob("./videos/*.srt");
-        $vid_path = $path[0];
-        //$__fileName = basename($vid_path, ".srt");
-        //$__fileName = $vid_path.".srt";
     }
-    return $vid_path;
+    return $path;
 }
 
 function uploadedFilesHTML()
