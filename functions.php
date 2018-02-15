@@ -61,15 +61,16 @@ function uploadedFilesHTML()
                    class="thumbLink"><?= $filename ?></a>
             <?php } else echo $filename;
             if (checkFileExt($filename, '.mp4')) {
-                if (!is_dir('thumbs/' . $filenamewithoutext)) { ?>
-                    <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
-                                class="fa fa-edit"></i>
-                    </button>
-                <?php } //Show gen auto sub button
+                //Show gen auto sub button
                 $files = glob("videos/*");
                 if (!in_array("videos/" . $filenamewithoutext . ".srt", $files)) { ?>
                     <button id="<?= $filename ?>" name="gensub" class="btn btn-warning btn-sm">Gen auto sub <i
                                 class="fa fa-plus"></i>
+                    </button>
+                <?php } //Show Make thumbnails button
+                if (!is_dir('thumbs/' . $filenamewithoutext)) { ?>
+                    <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
+                                class="fa fa-edit"></i>
                     </button>
                 <?php } ?>
             <?php } ?>
