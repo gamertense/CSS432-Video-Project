@@ -15,7 +15,7 @@ function getVideo($root_dir)
         if ($vid_fileError === 0) {
             if ($vid_fileSize < 10000000000) {
                 $fileNameNew = $vidName . "." . $fileActualExt; //unique name
-                $fileNameNew=str_replace(" ", "_", $fileNameNew);
+                $fileNameNew = str_replace(" ", "_", $fileNameNew);
                 $fileDestination = $root_dir . 'videos/' . $fileNameNew;
                 //Add image
                 move_uploaded_file($vid_fileTmpName, $fileDestination);
@@ -44,7 +44,7 @@ function exclude_word($word, array $exclude_list)
 function getPathArray($file_extension)
 { //'0' for mp4, '1' for srt
     if ($file_extension == 0) {
-        $path = glob("./videos/*.mp4");      
+        $path = glob("./videos/*.mp4");
     } elseif ($file_extension == 1) {
         $path = glob("./videos/*.srt");
     }
@@ -69,7 +69,7 @@ function uploadedFilesHTML()
                                 class="fa fa-plus"></i>
                     </button>
                 <?php } //Show Make thumbnails button
-                if (!is_dir('thumbs/' . $filenamewithoutext)) { ?>
+                if (!file_exists('thumbs/' . $filenamewithoutext . '/0.png')) { ?>
                     <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
                                 class="fa fa-edit"></i>
                     </button>
