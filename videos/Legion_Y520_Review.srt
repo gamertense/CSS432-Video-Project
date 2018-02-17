@@ -1,0 +1,651 @@
+1
+00:00:05,632 --> 00:00:07,168
+Hey how's it going do you to be here
+
+2
+00:00:07,424 --> 00:00:11,264
+So this is Lenovo Legion y520 their mid-tier gaming laptop
+
+3
+00:00:11,776 --> 00:00:13,312
+And aesthetically I really like this
+
+4
+00:00:14,336 --> 00:00:15,616
+It feels nice to hold in your hand
+
+5
+00:00:15,872 --> 00:00:17,408
+And fingerprints don't show up too much
+
+6
+00:00:17,920 --> 00:00:19,968
+There's a full carbon fiber top and it's
+
+7
+00:00:20,480 --> 00:00:21,760
+Black everywhere even the logos
+
+8
+00:00:22,016 --> 00:00:25,856
+Most gaming laptops have some kind of red accents on the exterior
+
+9
+00:00:26,112 --> 00:00:26,624
+This doesn't
+
+10
+00:00:27,136 --> 00:00:28,928
+He pulled into lecture hall or even at work
+
+11
+00:00:29,184 --> 00:00:29,952
+No one would really notice
+
+12
+00:00:30,464 --> 00:00:32,000
+I also like the bronze or
+
+13
+00:00:32,256 --> 00:00:35,840
+Copper colored heatsink they can see through the back it's a pretty muted Bible to this laptop
+
+14
+00:00:36,096 --> 00:00:37,888
+Until you open it and you realize
+
+15
+00:00:38,144 --> 00:00:38,912
+There's red everywhere
+
+16
+00:00:39,168 --> 00:00:42,752
+Had to be fair about like the low-to-mid tear gaming laptops
+
+17
+00:00:43,008 --> 00:00:45,824
+This has not that much but it's there
+
+18
+00:00:46,080 --> 00:00:49,664
+The build quality is good it's on par with competitors in this price range
+
+19
+00:00:49,920 --> 00:00:51,712
+There isn't anything that feels poorly built
+
+20
+00:00:51,968 --> 00:00:53,504
+The chassis the screen
+
+21
+00:00:53,760 --> 00:00:58,368
+The hinges good to way better than the hinge on the older y50 or y700
+
+22
+00:00:58,624 --> 00:01:03,232
+The display is one of the better looking ones in the sub $1,000 gaming laptop
+
+23
+00:01:04,000 --> 00:01:09,120
+Teddy P color gamut is kind of mediocre in even after calibration color accuracy
+
+24
+00:01:09,376 --> 00:01:11,168
+The best but it's reasonably bright
+
+25
+00:01:11,424 --> 00:01:12,960
+And viewing angles are good cuz it's
+
+26
+00:01:13,216 --> 00:01:15,520
+IPS panel bezels aren't too thick
+
+27
+00:01:15,776 --> 00:01:16,544
+And the webcam look
+
+28
+00:01:18,592 --> 00:01:21,152
+The speakers are positioned nicely just below the screen
+
+29
+00:01:21,408 --> 00:01:22,688
+When you're playing games
+
+30
+00:01:22,944 --> 00:01:23,712
+It sounds like a projector
+
+31
+00:01:23,968 --> 00:01:24,736
+Right into your ears
+
+32
+00:01:25,248 --> 00:01:27,552
+The thing is these lack base there's
+
+33
+00:01:27,808 --> 00:01:31,392
+Decent volume but the lower frequencies just aren't there even when I'm playing around with you
+
+34
+00:01:32,416 --> 00:01:34,464
+Down at the keyboard we have a couple of different
+
+35
+00:01:34,720 --> 00:01:36,512
+Textures we haven't brushed finished up here
+
+36
+00:01:36,768 --> 00:01:37,792
+And then the rest of the deck
+
+37
+00:01:38,048 --> 00:01:38,560
+Is this kind of
+
+38
+00:01:38,816 --> 00:01:39,328
+Soft touch
+
+39
+00:01:40,096 --> 00:01:43,168
+The keyboard has red accents and red backlighting
+
+40
+00:01:43,680 --> 00:01:47,008
+The number pad on the right is a little different
+
+41
+00:01:47,264 --> 00:01:47,776
+Sephora
+
+42
+00:01:48,032 --> 00:01:49,824
+If your number pad Pro we just use number
+
+43
+00:01:50,080 --> 00:01:50,592
+Has often
+
+44
+00:01:50,848 --> 00:01:51,616
+You'll probably find
+
+45
+00:01:52,384 --> 00:01:53,920
+The rest of the Lord is good
+
+46
+00:01:54,176 --> 00:01:54,944
+Easy to type on
+
+47
+00:01:55,200 --> 00:01:57,248
+Keys have 120mm of travel
+
+48
+00:01:57,760 --> 00:02:02,112
+Keystrokes feel a little soft but comfortable to use I think most people will easily get you
+
+49
+00:02:03,392 --> 00:02:06,720
+The track put itself kind of feels like glass but I'm pretty sure it's plastic
+
+50
+00:02:06,976 --> 00:02:08,512
+It's just a nice smooth finish
+
+51
+00:02:08,768 --> 00:02:11,328
+Synaptics drivers but good tracking in Chester
+
+52
+00:02:11,584 --> 00:02:14,144
+Control the buttons are not.
+
+53
+00:02:14,656 --> 00:02:15,680
+Dedicated buttons
+
+54
+00:02:15,936 --> 00:02:16,704
+But they feel
+
+55
+00:02:16,960 --> 00:02:17,472
+Mediocre
+
+56
+00:02:17,728 --> 00:02:19,008
+Like the middle area X
+
+57
+00:02:19,264 --> 00:02:21,568
+Like a lever so the closer It Gets In The Middle
+
+58
+00:02:21,824 --> 00:02:25,408
+The harder it is to click you can only press it down on the sides and I just don't love this
+
+59
+00:02:26,432 --> 00:02:27,968
+The port selection is good
+
+60
+00:02:28,224 --> 00:02:28,992
+Does Ethernet use
+
+61
+00:02:29,248 --> 00:02:30,528
+YouTube and audio jack
+
+62
+00:02:30,784 --> 00:02:32,320
+And I never said we have HDMI
+
+63
+00:02:32,576 --> 00:02:33,600
+A pair of USB 3
+
+64
+00:02:33,856 --> 00:02:34,624
+An SD reader
+
+65
+00:02:34,880 --> 00:02:35,648
+SPC
+
+66
+00:02:35,904 --> 00:02:38,464
+There's no sign of a 3 support but that's just the norm at this time
+
+67
+00:02:39,488 --> 00:02:41,536
+To get inside you flip it over remove some
+
+68
+00:02:41,792 --> 00:02:44,608
+Screws and open it up we have a good amount of upgrade welcome
+
+69
+00:02:45,376 --> 00:02:46,912
+Does a two and a half inch Drive Bay
+
+70
+00:02:47,168 --> 00:02:48,448
+An empty slot that supports
+
+71
+00:02:48,704 --> 00:02:52,544
+Pcie the configurations with SSD drives have pretty good speeds
+
+72
+00:02:53,056 --> 00:02:56,128
+And he pop up this metal Shredder here you can access the ramp
+
+73
+00:02:56,640 --> 00:02:58,944
+The battery's down here it's relatively small we're looking at
+
+74
+00:02:59,200 --> 00:03:00,224
+45 watt hour battery
+
+75
+00:03:00,480 --> 00:03:03,552
+I'm getting a little less than 4 hours of regular used with the
+
+76
+00:03:03,808 --> 00:03:04,320
+The screen at 200
+
+77
+00:03:04,576 --> 00:03:05,088
+50 minutes
+
+78
+00:03:05,344 --> 00:03:07,392
+If you're playing games is going to close in 45 minutes
+
+79
+00:03:07,648 --> 00:03:08,160
+To an hour
+
+80
+00:03:08,416 --> 00:03:10,976
+I really wish they'd put a bigger battery in this thing but
+
+81
+00:03:11,488 --> 00:03:12,512
+That's a compromise you going to make it
+
+82
+00:03:13,536 --> 00:03:14,816
+Performance overall is good
+
+83
+00:03:15,072 --> 00:03:16,608
+It uses Katy Lake CPUs
+
+84
+00:03:16,864 --> 00:03:18,912
+And a GTX 1050 TI even on the base
+
+85
+00:03:19,168 --> 00:03:22,240
+This model I'm running the upgraded i7 configuration
+
+86
+00:03:22,496 --> 00:03:24,544
+But the game performs are going to be really similar but
+
+87
+00:03:24,800 --> 00:03:25,312
+This
+
+88
+00:03:25,568 --> 00:03:26,080
+And I-5
+
+89
+00:03:26,592 --> 00:03:28,128
+Does a more detailed video link in the description
+
+90
+00:03:28,640 --> 00:03:30,176
+But on the 1050ti
+
+91
+00:03:30,432 --> 00:03:31,200
+Can the 7700
+
+92
+00:03:31,456 --> 00:03:33,504
+HQ something lighter like OverWatch
+
+93
+00:03:33,760 --> 00:03:35,552
+70 frames per second on Ultra
+
+94
+00:03:35,808 --> 00:03:37,088
+On Highway looking at almost
+
+95
+00:03:37,344 --> 00:03:37,856
+On June 21st
+
+96
+00:03:38,624 --> 00:03:41,440
+Doom on Ultra will still float above six
+
+97
+00:03:41,696 --> 00:03:42,208
+Second
+
+98
+00:03:42,464 --> 00:03:45,280
+Basically any of them or off to my Shooters will play really nice
+
+99
+00:03:45,536 --> 00:03:46,048
+Beyond the system
+
+100
+00:03:46,304 --> 00:03:47,840
+Something a bit more demanding like
+
+101
+00:03:48,096 --> 00:03:49,888
+Battlefield 1 you need to drop the graphic
+
+102
+00:03:50,144 --> 00:03:51,936
+Hi to get into that 60 France
+
+103
+00:03:52,704 --> 00:03:55,520
+In general any of the current titles will play nicely on
+
+104
+00:03:56,544 --> 00:03:58,592
+Yeah it's the best value GPU for
+
+105
+00:04:00,384 --> 00:04:01,152
+If you're editing videos
+
+106
+00:04:01,408 --> 00:04:02,944
+This is still a great choice especially cuz
+
+107
+00:04:03,200 --> 00:04:06,784
+Two drives in there but if you didn't call or accurate work I would totally plug up a neck
+
+108
+00:04:07,040 --> 00:04:07,552
+External monitor
+
+109
+00:04:07,808 --> 00:04:10,880
+There is some thermal throttling if you posted by some benchmarks for
+
+110
+00:04:11,136 --> 00:04:12,928
+Long enough but I never know sudden any games
+
+111
+00:04:13,184 --> 00:04:15,488
+Even after hours of playing so should be good
+
+112
+00:04:15,744 --> 00:04:18,559
+Surface temperature even unload stays comfortable to use
+
+113
+00:04:18,815 --> 00:04:19,583
+There's also
+
+114
+00:04:19,839 --> 00:04:23,679
+Dream cooling mode and software to crank the fans up if you really want the best
+
+115
+00:04:23,935 --> 00:04:26,751
+Turbo performance the heat pipe layout isn't
+
+116
+00:04:27,007 --> 00:04:30,335
+My favorite is an older style design like the heat from the GPU has a
+
+117
+00:04:30,591 --> 00:04:31,359
+Pass through the sea
+
+118
+00:04:31,615 --> 00:04:32,639
+View along the pipe
+
+119
+00:04:33,407 --> 00:04:35,711
+The fans Austin spin on idle but
+
+120
+00:04:35,967 --> 00:04:42,111
+It's so quiet unload it can get a little louder. Too bad I didn't hit that fixstream fan mode I don't know when you actually use
+
+121
+00:04:42,367 --> 00:04:44,671
+Use this but if you do it gets very noisy
+
+122
+00:04:45,695 --> 00:04:47,999
+Okay so the Lenovo Legend y520
+
+123
+00:04:48,255 --> 00:04:49,279
+You're getting a device with
+
+124
+00:04:49,535 --> 00:04:52,095
+A lot of plastic materials but with good build quality
+
+125
+00:04:52,351 --> 00:04:53,887
+Decent IPS screen
+
+126
+00:04:54,143 --> 00:04:54,911
+Breitbart
+
+127
+00:04:55,167 --> 00:04:55,935
+Weak color game
+
+128
+00:04:56,447 --> 00:04:57,215
+Keyboard is good
+
+129
+00:04:57,471 --> 00:04:58,239
+Trackpad is good
+
+130
+00:04:58,495 --> 00:05:00,287
+Buns on the trackpad are not
+
+131
+00:05:00,543 --> 00:05:01,055
+So good
+
+132
+00:05:01,311 --> 00:05:01,823
+Inside
+
+133
+00:05:02,079 --> 00:05:03,615
+Dkb Lake CPU options
+
+134
+00:05:03,871 --> 00:05:04,383
+And the 1050
+
+135
+00:05:04,639 --> 00:05:05,919
+TTI deliver awesome performance
+
+136
+00:05:06,175 --> 00:05:06,687
+The dollar
+
+137
+00:05:06,943 --> 00:05:08,223
+Cooling is done reasonably well
+
+138
+00:05:08,735 --> 00:05:11,551
+The RAM and the storage are all easy to access for a few
+
+139
+00:05:11,807 --> 00:05:12,319
+Future upgrades
+
+140
+00:05:12,831 --> 00:05:16,159
+The battery is a little late we're looking around for hours of average
+
+141
+00:05:16,671 --> 00:05:17,439
+So this laptop
+
+142
+00:05:17,695 --> 00:05:19,231
+There's not much I just like about it it's
+
+143
+00:05:19,743 --> 00:05:20,767
+For this price point it's
+
+144
+00:05:21,023 --> 00:05:21,535
+Really good
+
+145
+00:05:21,791 --> 00:05:23,839
+The one advantage that I would say that Lenovo has
+
+146
+00:05:24,095 --> 00:05:26,399
+Over other competitors in this price point
+
+147
+00:05:26,911 --> 00:05:28,191
+Is that they often have
+
+148
+00:05:28,447 --> 00:05:28,959
+Pretty Goods
+
+149
+00:05:29,215 --> 00:05:31,263
+Tell the right now you can get us in for $850
+
+150
+00:05:31,519 --> 00:05:32,287
+That's what the 10:50
+
+151
+00:05:32,543 --> 00:05:33,055
+ATI that's
+
+152
+00:05:33,311 --> 00:05:34,591
+Really good my opinion
+
+153
+00:05:34,847 --> 00:05:37,151
+Trying to decide between this laptop and
+
+154
+00:05:37,663 --> 00:05:39,967
+The three or four other laptops that are in this price range
+
+155
+00:05:40,223 --> 00:05:41,759
+I will be doing a comparative review
+
+156
+00:05:42,015 --> 00:05:43,807
+I want to do it sooner than later but
+
+157
+00:05:44,063 --> 00:05:44,831
+There's a fourth
+
+158
+00:05:45,087 --> 00:05:46,111
+Laptop that came to mix
+
+159
+00:05:47,391 --> 00:05:51,231
+Two-player for entered the game I will be doing that video shortly and then I'll be doing
+
+160
+00:05:51,999 --> 00:05:52,767
+Comparative video
+
+161
+00:05:53,023 --> 00:05:53,535
+For all of them
+
+162
+00:05:53,791 --> 00:05:55,583
+Hope you guys enjoy this video sounds if you liked it
+
+163
+00:05:55,839 --> 00:05:56,607
+Subzi loved it

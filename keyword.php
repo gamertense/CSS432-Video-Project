@@ -34,7 +34,7 @@ $search = $_GET['search'];
         $vid_fileName = str_replace(".srt", "", $vid_Idx);
         $vid_fileName = str_replace("./videos/", "", $vid_fileName); ?>
 
-        <h5>Video name: <?= $vid_fileName ?></h5>
+        <font color="green"><h5>Video name: <?= $vid_fileName ?></h5></font>
         <table class="table table-hover">
             <thead>
             <tr>
@@ -70,7 +70,7 @@ $search = $_GET['search'];
             ?>
             </tbody>
         </table>
-        <hr>
+        <hr><br>
     <?php } ?>
 </div>
 </body>

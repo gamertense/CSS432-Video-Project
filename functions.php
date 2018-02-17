@@ -15,6 +15,7 @@ function getVideo($root_dir)
         if ($vid_fileError === 0) {
             if ($vid_fileSize < 10000000000) {
                 $fileNameNew = $vidName . "." . $fileActualExt; //unique name
+                $fileNameNew=str_replace(" ", "_", $fileNameNew);
                 $fileDestination = $root_dir . 'videos/' . $fileNameNew;
                 //Add image
                 move_uploaded_file($vid_fileTmpName, $fileDestination);
