@@ -13,7 +13,9 @@ if (isset($_POST['ffmpeg_dir']))
 //Update Python path variable
 if (isset($_POST['python_path']))
     $_SESSION["python_path"] = str_replace(" ", "", $_POST['python_path']);
-
+//Remove all thumbnails of this video
+if (isset($_GET['rmthumb']))
+    deleteDirectory('thumbs/' . $_GET['rmthumb']);
 ?>
 
 <html>
@@ -33,7 +35,9 @@ if (isset($_POST['python_path']))
         }
     </style>
     <title>Video Thumbnailer Demo Using FFMPEG</title>
-    <script type="text/javascript" data-pace-options='{ "elements": { "selectors": [".selector"] }, "startOnPageLoad": false }' src="vendor/pace/pace.min.js"></script>
+    <script type="text/javascript"
+            data-pace-options='{ "elements": { "selectors": [".selector"] }, "startOnPageLoad": false }'
+            src="vendor/pace/pace.min.js"></script>
     <link rel="stylesheet" href="vendor/pace/pace-theme-big-counter.tmpl.css">
 </head>
 

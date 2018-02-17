@@ -41,10 +41,10 @@ if (glob("./videos/" . $_POST['filename'] . ".mp4") == true) {
                     <?php else: ?>
                         <p>Roll over the image and wait for a few seconds.</p>
 
-                        <img src="./thumbs/<?php echo $_POST['filename'] ?>/0.png" width="700" height="400"
+                        <img src="./thumbs/<?php echo $_POST['filename'] ?>/0.png" width="750" height="400"
                              onmouseover="frameRotator.start(this)"
                              onmouseout="frameRotator.end(this)"/>
-
+                        <a href="?rmthumb=<?= $_POST['filename'] ?>">Remove all thumbnails of this video</a>
                     <?php endif;
                 } ?>
             </div>
