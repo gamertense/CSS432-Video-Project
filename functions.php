@@ -69,7 +69,7 @@ function uploadedFilesHTML()
                                 class="fa fa-plus"></i>
                     </button>
                 <?php } //Show Make thumbnails button
-                if (!file_exists('thumbs/' . $filenamewithoutext . '/0.png')) { ?>
+                else if (!file_exists('thumbs/' . $filenamewithoutext . '/0.png')) { ?>
                     <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
                                 class="fa fa-edit"></i>
                     </button>
