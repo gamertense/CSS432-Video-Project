@@ -9,11 +9,6 @@ session_start();
 use Benlipp\SrtParser\Parser;
 
 $search = $_GET['search'];
-
-//$path = glob("./videos/*.mp4"); // This will work properly if only one mp4 video is in the path
-//$vid_path = $path[0];
-//$vid_fileName = basename($vid_path, ".mp4"); // get file name without extension
-//$vid_fileName = get_path(0);
 ?>
 
 <html>
@@ -65,8 +60,6 @@ $search = $_GET['search'];
                     }
                 }
             }
-
-
             ?>
             </tbody>
         </table>

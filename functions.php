@@ -69,7 +69,7 @@ function uploadedFilesHTML()
                                 class="fa fa-plus"></i>
                     </button>
                 <?php } //Show Make thumbnails button
-                if (!file_exists('thumbs/' . $filenamewithoutext . '/0.png')) { ?>
+                else if (!file_exists('thumbs/' . $filenamewithoutext . '/0.png')) { ?>
                     <button id="<?= $filename ?>" name="makethumb" class="btn btn-success btn-sm">Make thumbnails <i
                                 class="fa fa-edit"></i>
                     </button>
@@ -88,4 +88,28 @@ function checkFileExt($filename, $findme)
     if ($pos === false)
         return false;
     return true;
+}
+
+function deleteDirectory($dir)
+{
+    if (!file_exists($dir)) {
+        return true;
+    }
+
+    if (!is_dir($dir)) {
+        return unlink($dir);
+    }
+
+    foreach (scandir($dir) as $item) {
+        if ($item == '.' || $item == '..') {
+            continue;
+        }
+
+        if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+            return false;
+        }
+
+    }
+
+    return rmdir($dir);
 }

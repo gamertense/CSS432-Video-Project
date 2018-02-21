@@ -452,7 +452,7 @@ Over an hour
 
 114
 00:03:44,000 --> 00:03:45,536
-You'll notice that the CPU temperature source
+You'll notice that the CPU temperature starts
 
 115
 00:03:45,792 --> 00:03:46,560
