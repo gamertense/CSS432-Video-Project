@@ -12,4 +12,5 @@ $All = array("do", "has", "will", "is", "has", "been", "did",
 			"in", "at", "through", "over", "between", "under",
 			"a", "an", "the",
 			"and", "but", "for", "so", "since", "as",
-			"I", "you", "him", "us", "ours", "she");
+			"I", "you", "him", "us", "ours", "she",
+            " ");

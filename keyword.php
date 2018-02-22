@@ -33,8 +33,8 @@ $search = $_GET['search'];
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>Start Time</th>
-                <th>End Time</th>
+                <th>Start Time (min)</th>
+                <th>End Time (min)</th>
                 <th>Text</th>
                 <th>Screen</th>
             </tr>
@@ -43,15 +43,15 @@ $search = $_GET['search'];
             <?php
 
             if (exclude_word($search, $All) == false) { //Options: All, Auxiliary, Preposition, Article, Conjunction, Pronoun
-                echo "<font color=\"red\">Exclude Word Test!</font>";
+                echo "<b><font color=\"red\">Exclude Word!</font></b>";
             } else {
                 foreach ($captions as $caption) {
                     //$caption_str = explode(" ", $caption->text);
                     if (strpos($caption->text, $search) !== false) {
                         ?>
                         <tr>
-                            <td><?= $caption->startTime ?></td>
-                            <td><?= $caption->endTime ?></td>
+                            <td><?= round($caption->startTime / 60, 2) ?></td>
+                            <td><?= round($caption->endTime / 60, 2) ?></td>
                             <td><?= $caption->text ?></td>
                             <td><?= '<img src="./thumbs/' . $vid_fileName . '/' . $i . '.png" width="200" height="150">' ?></td>
                         </tr>

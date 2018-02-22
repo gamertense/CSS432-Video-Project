@@ -14,8 +14,10 @@ if (isset($_POST['ffmpeg_dir']))
 if (isset($_POST['python_path']))
     $_SESSION["python_path"] = str_replace(" ", "", $_POST['python_path']);
 //Remove all thumbnails of this video
-if (isset($_GET['rmthumb']))
+if (isset($_GET['rmthumb'])) {
     deleteDirectory('thumbs/' . $_GET['rmthumb']);
+    header('Location: index.php');
+}
 ?>
 
 <html>
